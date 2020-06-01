@@ -39,3 +39,16 @@ export const addSmurfInfo = (smurf) => dispatch => {
         .catch(err => console.log(err))
 
 }
+
+export const handleDelete = event => dispatch => {
+    console.log(event.target)
+    const id = event.target.getAttribute('name')
+    dispatch({ type: DELETE_SMURF_SUCCESS });
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        console.log(res)
+        dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data})
+      })
+      .catch(err => dispatch({ type: DELETE_SMURF_FAILURE, payload: err }));
+  };

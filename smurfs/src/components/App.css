@@ -58,3 +58,7 @@ button:active {
 	position:relative;
 	top:1px;
 }
+
+.App .SmurfTown {
+  border: ghostwhite;
+}
